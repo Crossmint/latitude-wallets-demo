@@ -36,7 +36,7 @@ export function Dashboard() {
             height={150}
             className="mb-4"
           />
-          <h1 className="text-2xl font-semibold mb-2">Wallets Quickstart</h1>
+          <h1 className="text-2xl font-semibold mb-2">Latitude Wallets Demo</h1>
           <p className="text-gray-600 text-sm">
             Create and interact with Crossmint wallets
           </p>
@@ -104,7 +104,8 @@ export function Dashboard() {
                       Owner
                     </span>
                     <span className="text-sm text-gray-900 overflow-auto">
-                      {wallet?.owner?.replace(/^[^:]*:/, "") || "Current User"}
+                      {wallet?.signer?.locator().replace(/^[^:]*:/, "") ||
+                        "Current User"}
                     </span>
                   </div>
                   <div className="flex items-center gap-2 justify-between">

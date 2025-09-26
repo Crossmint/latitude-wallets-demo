@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { EmbeddedAuthForm } from "@crossmint/client-sdk-react-ui";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { LoginButton } from "@/components/login";
 
 const features = [
   {
@@ -114,7 +114,7 @@ export function LandingPage({ isLoading }: { isLoading: boolean }) {
           </div>
         ) : (
           <div className="w-full max-w-md bg-white rounded-3xl border shadow-lg overflow-hidden">
-            <EmbeddedAuthForm />
+            <LoginButton />
           </div>
         )}
       </div>
