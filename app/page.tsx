@@ -5,17 +5,15 @@ import { useWallet } from "@crossmint/client-sdk-react-ui";
 import { LandingPage } from "@/components/landing-page";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { Dashboard } from "@/components/dashboard";
-import { useAuth } from "@/app/providers";
+import { useFirebase } from "@/hooks/useFirebase";
 
 export default function Home() {
-  const { wallet, status: walletStatus } = useWallet();
-  const { user, loading } = useAuth();
+  const { user, isLoading: isLoadingUser } = useFirebase();
+  const { wallet, status } = useWallet();
   const nodeRef = useRef(null);
-  console.log("user", user);
-  console.log("wallet", wallet);
 
   const isLoggedIn = wallet != null && user !== null;
-  const isLoading = walletStatus === "in-progress" || loading;
+  const isLoading = status === "in-progress" || isLoadingUser;
 
   return (
     <div className="min-h-screen flex flex-col">
