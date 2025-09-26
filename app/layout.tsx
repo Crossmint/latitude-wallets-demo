@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Providers } from "@/app/providers";
 
@@ -15,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Wallets Quickstart",
-  description: "A quickstart for wallets",
+  title: "Latitude Wallets Demo",
+  description: "Demo for Latitude Wallets",
 };
 
 export default function RootLayout({
@@ -30,7 +29,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>{children}</Providers>
-        <Analytics />
       </body>
     </html>
   );

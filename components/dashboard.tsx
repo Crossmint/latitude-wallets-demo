@@ -76,6 +76,7 @@ export function Dashboard() {
                           : ""}
                       </span>
                       <button
+                        type="button"
                         onClick={handleCopyAddress}
                         className="text-gray-500 hover:text-gray-700 transition-colors"
                       >

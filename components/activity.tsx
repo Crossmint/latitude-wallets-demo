@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { type Activity, useWallet } from "@crossmint/client-sdk-react-ui";
+import {
+  type Activity as ActivityType,
+  useWallet,
+} from "@crossmint/client-sdk-react-ui";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function Activity() {
   const { wallet } = useWallet();
-  const [activity, setActivity] = useState<Activity | null>(null);
+  const [activity, setActivity] = useState<ActivityType | null>(null);
   const [hasInitiallyLoaded, setHasInitiallyLoaded] = useState(false);
 
   useEffect(() => {
@@ -49,13 +52,14 @@ export function Activity() {
 
     if (diffInMinutes < 1) {
       return "just now";
-    } else if (diffInMinutes < 60) {
-      return `${diffInMinutes}m ago`;
-    } else if (diffInHours < 24) {
-      return `${diffInHours}h ago`;
-    } else {
-      return `${diffInDays}d ago`;
     }
+    if (diffInMinutes < 60) {
+      return `${diffInMinutes}m ago`;
+    }
+    if (diffInHours < 24) {
+      return `${diffInHours}h ago`;
+    }
+    return `${diffInDays}d ago`;
   };
 
   return (
@@ -158,6 +162,7 @@ export function Activity() {
                   fundButton.click();
                 }
               }}
+              type="button"
               className="px-6 py-2.5 rounded-full text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/80 transition-colors"
             >
               Add money

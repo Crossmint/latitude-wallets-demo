@@ -24,7 +24,7 @@ export function TransferFunds() {
       setExplorerLink(txn.explorerLink);
     } catch (err) {
       console.error("Transfer: ", err);
-      alert("Transfer: " + err);
+      alert(`Transfer: ${err}`);
     } finally {
       setIsLoading(false);
     }
@@ -58,8 +58,8 @@ export function TransferFunds() {
               if (value === "") {
                 setAmount(null);
               } else {
-                const numValue = parseFloat(value);
-                if (!isNaN(numValue)) {
+                const numValue = Number.parseFloat(value);
+                if (!Number.isNaN(numValue)) {
                   setAmount(numValue);
                 }
               }
@@ -72,7 +72,10 @@ export function TransferFunds() {
 
         {/* Transfer To Input */}
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-gray-700">
+          <label
+            htmlFor="recipient"
+            className="text-sm font-medium text-gray-700"
+          >
             Transfer to
           </label>
           <input
@@ -86,6 +89,7 @@ export function TransferFunds() {
 
         {/* Transfer Button */}
         <button
+          type="button"
           className={cn(
             "w-full py-3 px-4 rounded-full text-sm font-medium transition-colors",
             isLoading || !recipient || !amount

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
-  Balances,
+  type Balances,
   useCrossmint,
   useWallet,
 } from "@crossmint/client-sdk-react-ui";
@@ -25,7 +25,7 @@ export function WalletBalance() {
         setBalances(balances);
       } catch (error) {
         console.error("Error fetching wallet balances:", error);
-        alert("Error fetching wallet balances: " + error);
+        alert(`Error fetching wallet balances: ${error}`);
       }
     }
     fetchBalances();
@@ -92,16 +92,16 @@ export function WalletBalance() {
     <div className="flex flex-col gap-4">
       {/* Header with Icon and Info */}
       <div className="flex items-center gap-3">
-        <Image src="/usdxm.svg" alt="USDXM" width={24} height={24} />
+        <Image src="/usdxm.svg" alt="USD" width={24} height={24} />
         <div className="flex items-center gap-2">
-          <h3 className="text-lg font-semibold">USDXM balance</h3>
+          <h3 className="text-lg font-semibold">USD balance</h3>
           <div className="relative group">
             <div className="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center cursor-help">
               <span className="text-gray-500 text-xs font-medium">i</span>
             </div>
             <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
               USDXM is a test stablecoin
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900" />
             </div>
           </div>
         </div>
@@ -113,6 +113,7 @@ export function WalletBalance() {
       {/* Add Money Button */}
       <div className="flex flex-col gap-3">
         <button
+          type="button"
           onClick={handleFund}
           disabled={isFunding}
           data-fund-button
