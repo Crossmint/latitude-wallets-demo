@@ -113,6 +113,16 @@ export function TransferFunds() {
             → View transaction
           </a>
         )}
+
+        {/* Withdraw Button */}
+        {/* TODO: Offramp here */}
+        <button
+          type="button"
+          className="w-full py-3 px-4 rounded-full text-sm font-medium transition-colors bg-gray-300 text-gray-500 cursor-not-allowed"
+          disabled
+        >
+          Withdraw
+        </button>
       </div>
     </div>
   );
