@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { EmbeddedAuthForm } from "@crossmint/client-sdk-react-ui";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { LoginButton } from "@/components/login";
 
 const features = [
   {
@@ -53,16 +53,16 @@ export function LandingPage({ isLoading }: { isLoading: boolean }) {
             "absolute rounded-[20px] inset-0 bg-black/40 transition-opacity duration-600 ease-out",
             showFeatures ? "opacity-100" : "opacity-0"
           )}
-        ></div>
+        />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col gap-12 text-white">
           <div className="flex flex-col gap-4">
-            <h1 className="text-6xl font-bold">Crossmint Wallets</h1>
+            <h1 className="text-6xl font-bold">Latitude Wallets Demo</h1>
             <p className="text-white/60 text-lg">
-              Get started with the Crossmint Wallets Quickstart.{" "}
+              Get started with the Latitude Wallets Demo.{" "}
               <a
-                href="https://github.com/crossmint/wallets-quickstart"
+                href="https://github.com/crossmint/latitude-wallets-demo"
                 style={{ color: "white" }}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -114,7 +114,7 @@ export function LandingPage({ isLoading }: { isLoading: boolean }) {
           </div>
         ) : (
           <div className="w-full max-w-md bg-white rounded-3xl border shadow-lg overflow-hidden">
-            <EmbeddedAuthForm />
+            <LoginButton />
           </div>
         )}
       </div>

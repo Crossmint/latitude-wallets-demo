@@ -1,19 +1,21 @@
 "use client";
 
 import { useRef } from "react";
-import { useAuth, useWallet } from "@crossmint/client-sdk-react-ui";
+import { useWallet } from "@crossmint/client-sdk-react-ui";
 import { LandingPage } from "@/components/landing-page";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { Dashboard } from "@/components/dashboard";
+import { useAuth } from "@/app/providers";
 
 export default function Home() {
   const { wallet, status: walletStatus } = useWallet();
-  const { status: authStatus } = useAuth();
+  const { user, loading } = useAuth();
   const nodeRef = useRef(null);
+  console.log("user", user);
+  console.log("wallet", wallet);
 
-  const isLoggedIn = wallet != null && authStatus === "logged-in";
-  const isLoading =
-    walletStatus === "in-progress" || authStatus === "initializing";
+  const isLoggedIn = wallet != null && user !== null;
+  const isLoading = walletStatus === "in-progress" || loading;
 
   return (
     <div className="min-h-screen flex flex-col">

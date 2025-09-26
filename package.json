@@ -1,5 +1,5 @@
 {
-  "name": "wallets-quickstart",
+  "name": "latitude-wallets-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@crossmint/client-sdk-react-ui": "2.4.13",
-    "@vercel/analytics": "^1.5.0",
+    "@crossmint/client-sdk-react-ui": "2.5.0",
     "clsx": "^2.1.1",
+    "firebase": "^12.3.0",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

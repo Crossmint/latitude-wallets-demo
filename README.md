@@ -4,7 +4,7 @@
 <img width="200" alt="Image" src="https://github.com/user-attachments/assets/8b617791-cd37-4a5a-8695-a7c9018b7c70" />
 <br>
 <br>
-<h1>Wallets Quickstart</h1>
+<h1>Latitude Wallets Demo</h1>
 
 <div align="center">
 <a href="https://wallets.demos-crossmint.com/">Live Demo</a> | <a href="https://docs.crossmint.com/introduction/platform/wallets">Docs</a> | <a href="https://www.crossmint.com/quickstarts">See all quickstarts</a>
@@ -15,7 +15,7 @@
 </div>
 
 ## Introduction
-Create and interact with Crossmint wallets. This quickstart uses Crossmint Auth and uses your email as a signer for that wallet.
+Create and interact with Crossmint wallets. This demo uses Firebase Auth and uses your email as a signer for that wallet.
 
 **Learn how to:**
 - Create a wallet
@@ -26,12 +26,12 @@ Create and interact with Crossmint wallets. This quickstart uses Crossmint Auth 
 ## Deploy
 Easily deploy the template to Vercel with the button below. You will need to set the required environment variables in the Vercel dashboard.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FCrossmint%2Fwallets-quickstart&env=NEXT_PUBLIC_CROSSMINT_API_KEY)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FCrossmint%2Flatitude-wallets-demo&env=NEXT_PUBLIC_CROSSMINT_API_KEY)
 
 ## Setup
 1. Clone the repository and navigate to the project folder:
 ```bash
-git clone https://github.com/crossmint/wallets-quickstart.git && cd wallets-quickstart
+git clone https://github.com/crossmint/latitude-wallets-demo.git && cd latitude-wallets-demo
 ```
 
 2. Install all dependencies:
@@ -54,8 +54,12 @@ cp .env.template .env
 ```bash
 NEXT_PUBLIC_CROSSMINT_API_KEY=your_api_key
 
-# Check all supported chains: https://docs.crossmint.com/introduction/supported-chains
-NEXT_PUBLIC_CHAIN=your_chain
+NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
 ```
 
 5. Run the development server:
