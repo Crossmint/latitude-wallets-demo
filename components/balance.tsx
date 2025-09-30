@@ -28,7 +28,14 @@ export function WalletBalance() {
         alert(`Error fetching wallet balances: ${error}`);
       }
     }
+
     fetchBalances();
+    // Poll every 8s to keep balance updated
+    const interval = setInterval(() => {
+      fetchBalances();
+    }, 8000);
+
+    return () => clearInterval(interval);
   }, [wallet]);
 
   const formatBalance = (balance: string) => {
@@ -118,8 +125,7 @@ export function WalletBalance() {
           {isFunding ? "Adding money..." : "Add money"}
         </button>
         <p className="text-gray-500 text-xs text-center">
-          Refresh the page after transferring. Balance may take a few seconds to
-          update.
+          Balance may take a few seconds to update after transfers.
         </p>
       </div>
     </div>
