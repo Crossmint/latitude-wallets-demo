@@ -8,7 +8,7 @@ import { onAuthStateChange } from "@/lib/firebase";
 export const useFirebase = () => {
   const { getOrCreateWallet } = useWallet();
 
-  const { experimental_setCustomAuth } = useCrossmint();
+  const { setJwt } = useCrossmint();
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,10 +22,7 @@ export const useFirebase = () => {
 
       try {
         const token = await user.getIdToken();
-        experimental_setCustomAuth({
-          email: user?.email ?? "",
-          jwt: token,
-        });
+        setJwt(token);
         await getOrCreateWallet({
           chain: "base-sepolia",
           signer: {
@@ -35,14 +32,14 @@ export const useFirebase = () => {
         });
       } catch (error) {
         console.error("Failed to get Firebase JWT:", error);
-        experimental_setCustomAuth(undefined);
+        setJwt(undefined);
       } finally {
         setIsLoading(false);
       }
     });
 
     return () => unsubscribe();
-  }, [experimental_setCustomAuth, getOrCreateWallet]);
+  }, [setJwt, getOrCreateWallet]);
 
   return {
     user,
